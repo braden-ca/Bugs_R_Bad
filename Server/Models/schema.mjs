@@ -9,4 +9,4 @@ const taskModel = new Schema({
     status : {type: Boolean, default: false}
 });
 
-export default mongoose.model('Question', questionModel);
+export default mongoose.model('Task', taskModel);
