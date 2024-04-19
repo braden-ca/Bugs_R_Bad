@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 
 /** import connection file */
 import connectToDatabase from "./Database/conn.mjs";
-import routes from "./routes/index.mjs";
+import routes from "./routes/taskRoutes.mjs";
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
