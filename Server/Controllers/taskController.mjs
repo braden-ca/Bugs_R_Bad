@@ -1,13 +1,14 @@
-import Task from "../Models/schema.mjs"; 
+import Task from "../Models/schema.mjs";
 
 const taskController = {
   async createTask(req, res) {
     try {
-      const { task, date, priority, status } = req.body;
+      const { task, description, date, priority, status } = req.body;
 
       // Create a new task instance using the Task model
       const newTask = new Task({
         task,
+        description,
         date: date || Date.now(),
         priority: priority || 1,
         status: status || false,
