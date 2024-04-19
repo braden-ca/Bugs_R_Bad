@@ -5,10 +5,15 @@ const port = process.env.PORT || 3000;
 
 /** import connection file */
 import connectToDatabase from "./Database/conn.mjs";
+import routes from "./routes/index.mjs";
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+
+// Middleware to parse JSON in request bodies
+app.use(express.json());
+app.use(routes);
 
 async function startServer() {
   try {
