@@ -3,3 +3,7 @@ body {
   background-color: rgb(194, 248, 230);
   color: rgb(56, 135, 231);
 }
+
+footer {
+  text-align: left;
+}
