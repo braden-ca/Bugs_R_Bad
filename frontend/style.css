@@ -1,9 +1,32 @@
 body {
   text-align: center;
-  background-color: rgb(194, 248, 230);
-  color: rgb(56, 135, 231);
+  background-color: rgb(245, 221, 247);
+  color: hsl(229, 70%, 27%);
 }
 
-footer {
+/* h2 {
+  text-align: center; 
+  margin-top: 0;
+} */
+
+div {
+  width: auto;
+}
+
+.add-task {
+  display: inline-block;
   text-align: left;
+  /* float: right; */
+  margin-top: 0; 
+}
+
+.show-tasks {
+  /* display: inline-block; */
+  text-align: left;
+  float: left; 
+  margin-top: 0; 
+}
+
+button {
+  cursor: pointer;
 }

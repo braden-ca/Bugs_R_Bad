@@ -8,24 +8,64 @@
   </head>
   <body>
     <h1>Welcome To TaskMaster</h1>
-    <footer>
-    <h2>Add Task</h2>
-    <h3>Enter task name</h3>
-    <input />
-    <button>Submit</button>
-    <h3>Due Date</h3>
-    <input />
-    <button>Submit</button>
-    <h3>Priority</h3>
-    <input />
-    <button>Submit</button>
 
-    <h2>Tasks Due Today</h2>
+    <div class = "add-task">
+      <h2>Add Task</h2>
+        <label> <h3>Task name</h3> <input type ="text" class="taskName"/></label>
+        <label> <h3>Description</h3> <input type ="text" class="description"/></label> <!--description is optional-->
+        <label> <h3>Due Date</h3> <input type ="date" class="dueDate"/></label>
+        <label> <h3>Priority</h3> <input type ="number" class="priority" min="1" max="3"/></label>
+        
+        <br><br>
+        <button>Submit</button>
+    </div>
+
+    <div class = "show-tasks">
+      <h2>Tasks Due Today</h2>
+
+      <h2 style="color: red;">Overdue Tasks</h2>
+
+      <h2>Upcoming Tasks</h2>
+
+      <h2>All Tasks</h2>
+    </div>
 
 
-    <h2>Overdue Tasks</h2>
+    <script>
+      var taskName = document.querySelector(".taskName");
+      var description = document.querySelector(".description");
+      var dueDate = document.querySelector(".dueDate");
+      var priority = document.querySelector(".priority");
+      var button = document.querySelector("button");
 
-    <h2>Upcoming Tasks</h2>
-  </footer>
+      button.addEventListener("click", ()=> { // when button is clicked
+        if (taskName.value && dueDate.value && priority.value) { // check values are enteres
+          if (priority.value >= 1 && priority.value <= 3) { // check priority is in bounds
+            // save data into an object 
+            var obj={ 
+              name: taskName.value,
+              description: description.value || "", // Include description if it's not empty
+              date: dueDate.value,
+              priority: priority.value
+            };
+            // send data to backend (where to send data, data sent)
+            fetch("/tasks", {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json"
+              },  // data being sent in vars
+              body: JSON.stringify(obj) // transform json data into string
+            })
+          }
+          else {
+            console.error("Priority must be between 1 and 3");
+          }
+        }
+        else {
+          console.error("Please fill in all fields.");
+        }
+      })
+    
+    </script>
   </body>
 </html>
