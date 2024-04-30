@@ -22,4 +22,3 @@ async function connectToDatabase() {
 }
 
 export default connectToDatabase;
-x
