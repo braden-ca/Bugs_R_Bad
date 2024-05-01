@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./Server/server.mjs",
+    "start": "node --env-file ./Server/.env ./Server/server.mjs",
     "dev": "nodemon ./Server/server.mjs"
   },
   "keywords": [],
