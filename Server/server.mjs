@@ -1,7 +1,9 @@
 import express from "express";
+import cors from "cors";
 //const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+
 
 /** import connection file */
 import connectToDatabase from "./Database/conn.mjs";
@@ -9,8 +11,13 @@ import routes from "./routes/taskRoutes.mjs";
 
 // Middleware to parse JSON in request bodies
 app.use(express.json());
-app.use(routes);
 
+var corsoptions={
+  origin: true,
+  credentials: true
+}
+app.use(cors(corsoptions));
+app.use(routes);
 app.get("/", (req, res) => {
   res.status(200).send({ message: 'Task deleted successfully.' });
 });
