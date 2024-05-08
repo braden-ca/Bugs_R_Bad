@@ -10,21 +10,6 @@ const port = process.env.PORT || 3000;
 import connectToDatabase from "./Database/conn.mjs";
 import routes from "./routes/taskRoutes.mjs";
 
-app.use(morgan('tiny'));
-app.use(cors());
-app.use(express.json());
-config();
-
-app.use('/api', router);
-
-app.get('/', (req, res) => {
-  try{
-       res.json("Get request")
-  } catch (error) {
-       res.json(error)
-  }
-})
-
 // Middleware to parse JSON in request bodies
 app.use(express.json());
 app.use(routes);
