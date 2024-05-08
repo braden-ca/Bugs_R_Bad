@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --env-file ./Server/.env ./Server/server.mjs",
-    "dev": "nodemon ./Server/server.mjs"
+    "dev": "nodemon --env-file ./Server/.env ./Server/server.mjs"
   },
   "keywords": [],
   "author": "",

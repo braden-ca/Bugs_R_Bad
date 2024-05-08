@@ -52,7 +52,7 @@
               priority: priority.value
             };
             // send data to backend (where to send data, data sent)
-            fetch("/tasks", {
+            fetch("http://localhost:3000/tasks", {
               method: "POST",
               headers: {
                 "Content-type": "application/json"

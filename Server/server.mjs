@@ -11,6 +11,10 @@ import routes from "./routes/taskRoutes.mjs";
 app.use(express.json());
 app.use(routes);
 
+app.get("/", (req, res) => {
+  res.status(200).send({ message: 'Task deleted successfully.' });
+});
+
 async function startServer() {
   try {
     await connectToDatabase();
@@ -25,17 +29,3 @@ async function startServer() {
 
 startServer();
 
-/*
-connect().then(() =>{
-  try {
-      app.listen(port, () => {
-          console.log(`Serrver connected to http://localhost:${port}`)
-      })
-  } catch (error) {
-      console.log("cannot connect to the server");
-  }
-}).catch(error => {
-  console.log("Invalid database connection");
-  console.error(error);
-})
-*/
