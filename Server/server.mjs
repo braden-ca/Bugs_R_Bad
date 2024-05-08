@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 config();
 
-app.use('/api', router)
+app.use('/api', router);
 
 app.get('/', (req, res) => {
   try{
@@ -42,3 +42,18 @@ async function startServer() {
 }
 
 startServer();
+
+/*
+connect().then(() =>{
+  try {
+      app.listen(port, () => {
+          console.log(`Serrver connected to http://localhost:${port}`)
+      })
+  } catch (error) {
+      console.log("cannot connect to the server");
+  }
+}).catch(error => {
+  console.log("Invalid database connection");
+  console.error(error);
+})
+*/
