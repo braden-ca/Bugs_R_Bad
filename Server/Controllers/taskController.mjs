@@ -1,7 +1,7 @@
 import Task from "../Models/schema.mjs";
-import questions, { answers } from '../database/data.mjs'
+import task from '../database/data.mjs'
 
-/*
+
 const taskController = {
   async createTask(req, res) {
     try {
@@ -61,8 +61,8 @@ const delTaskController = {
 };
 
 export default taskController;
-*/
-
+/*
+const taskController = {
 export async function getTask(req, res){
   try {
      const q = await Task.find()
@@ -72,7 +72,7 @@ export async function getTask(req, res){
   }
 }
 
-/** insert all questions */
+
 export async function insertTask(req,res){
   try {
       console.log(req.body);
@@ -84,7 +84,7 @@ export async function insertTask(req,res){
   }
 }
 
-/** Delete all questions */
+
 export async function dropTask(req, res){
   try {
      await Task.deleteMany();
@@ -93,3 +93,6 @@ export async function dropTask(req, res){
       res.json({ error })
   }
 }
+}
+export default taskController;
+*/

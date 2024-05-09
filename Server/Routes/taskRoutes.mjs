@@ -58,15 +58,15 @@ const router = Router();
 
 import * as controller from '../controllers/controller.js';
 
-router.route('/questions')
-.get(controller.getQuestions) 
-.post(controller.insertQuestions) 
-.delete(controller.dropQuestions) 
+router.route('/task')
+.get(controller.getTask) 
+.post(controller.insertTask) 
+.delete(controller.dropTask) 
 
 router.route('/result')
-    .get(controller.getResult)
-    .post(controller.storeResult)
-    .delete(controller.dropResult)
+    .get(controller.getTask)
+    .post(controller.storeTask)
+    .delete(controller.dropTask)
 
 export default router;
 */
