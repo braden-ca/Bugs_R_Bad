@@ -76,7 +76,7 @@ export async function getTask(req, res){
 export async function insertTask(req,res){
   try {
       console.log(req.body);
-        Questions.insertMany({task});
+        Task.insertMany({task});
        res.json({ msg: "Data Saved Successfully...!" });
   } catch (error) {
       console.error(error);
@@ -87,8 +87,8 @@ export async function insertTask(req,res){
 /** Delete all questions */
 export async function dropTask(req, res){
   try {
-     await Questions.deleteMany();
-     res.json({ msg: "Questions deleted successfully"});
+     await Task.deleteMany();
+     res.json({ msg: "Task deleted successfully"});
   } catch (error) {
       res.json({ error })
   }
