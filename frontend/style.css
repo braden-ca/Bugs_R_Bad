@@ -30,3 +30,13 @@ div {
 button {
   cursor: pointer;
 }
+
+#task-list li {
+  cursor: pointer;
+  color: blue; /* Set color to blue to resemble links */
+  text-decoration: underline; /* Underline text to resemble links */
+}
+
+#task-list li:hover {
+  text-decoration: none; /* Remove underline when hovered */
+}

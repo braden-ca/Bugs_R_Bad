@@ -39,7 +39,7 @@ router.delete('/tasks/:taskId', async (req, res) => {
     }
   });
 
-  // GET request to fetch and display tasks
+//  GET request to fetch and display tasks
 router.get("/tasks", async (req, res) => {
   try {
     const tasks = await Task.find(); 
@@ -49,6 +49,17 @@ router.get("/tasks", async (req, res) => {
     res.status(500).send("Error fetching tasks");
   }
 });
+
+//  USED FOR TESTING FRONTEND
+// router.get("/tasks", async (req, res) => {
+//   const tasks = [{
+//     name: "Task 1", description: "Description for Task 1", date: "2024-05-09", priority: 1
+//   }]
+//   res.status(200).json(tasks);
+//     // { name: "Task 2", description: "Description for Task 2", date: "2024-05-10", priority: 2 },
+//     // { name: "Task 3", description: "Description for Task 3", date: "2024-05-11", priority: 3 }
+
+// });
 
 export default router;
 

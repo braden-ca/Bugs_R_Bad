@@ -70,19 +70,23 @@
         }
       })
 
-      // Get tasks from the backend
-
-      function renderTasks(tasks) { // Function to render tasks in the frontend UI
+      // get tasks from the backend
+      function renderTasks(tasks) { // function to render tasks in the frontend UI
         const taskList = document.querySelector("#task-list");
-        // Clear existing tasks
-        taskList.innerHTML = "";
-        // Loop through each task and render it
-        tasks.forEach(task => {
-          const taskItem = document.createElement("li");
-          taskItem.textContent = `Task: ${task.name}, Description: ${task.description}, Due Date: ${task.date}, Priority: ${task.priority}`;
-          taskList.appendChild(taskItem);
+        taskList.innerHTML = "";  // clear existing tasks
+        tasks.forEach(task => { // iterates through each task
+          const taskItem = document.createElement("li");  // creates a list item for each task 
+          taskItem.textContent = task.name;  // sets the list item to task name 
+          taskItem.addEventListener("click", () => {  // adds on click event listener
+            // handleTaskClick(task.id); // function to handle when task is clicked
+            window.location.href = `task-details.html?id=${task.id}`;
+          })
+          taskList.appendChild(taskItem); // adds li item to ul list
         });
       }
+
+
+
 
       function fetchTasks() {
         fetch("http://localhost:3000/tasks")
@@ -93,7 +97,7 @@
             return response.json();
           })
           .then(tasks => {
-            // Call renderTasks function to render the retrieved tasks
+            // call renderTasks to render the retrieved tasks
             renderTasks(tasks);
           })
           .catch(error => {
@@ -101,7 +105,7 @@
           });
       }
 
-      // Call fetchTasks function to fetch and render tasks when the page loads
+      // call fetchTasks when page is loaded
       window.addEventListener("load", fetchTasks);    
     </script>
   </body>
