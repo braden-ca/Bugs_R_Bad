@@ -1,5 +1,7 @@
 import Task from "../Models/schema.mjs";
+import questions, { answers } from '../database/data.mjs'
 
+/*
 const taskController = {
   async createTask(req, res) {
     try {
@@ -59,3 +61,35 @@ const delTaskController = {
 };
 
 export default taskController;
+*/
+
+export async function getTask(req, res){
+  try {
+     const q = await Task.find()
+     res.json(q)
+  } catch (error) {
+      res.json({ error })
+  }
+}
+
+/** insert all questions */
+export async function insertTask(req,res){
+  try {
+      console.log(req.body);
+        Questions.insertMany({task});
+       res.json({ msg: "Data Saved Successfully...!" });
+  } catch (error) {
+      console.error(error);
+      res.status(400).json({ "error": "Invalid body" });
+  }
+}
+
+/** Delete all questions */
+export async function dropTask(req, res){
+  try {
+     await Questions.deleteMany();
+     res.json({ msg: "Questions deleted successfully"});
+  } catch (error) {
+      res.json({ error })
+  }
+}
