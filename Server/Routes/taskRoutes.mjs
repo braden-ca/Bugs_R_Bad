@@ -38,6 +38,18 @@ router.delete('/tasks/:taskId', async (req, res) => {
       res.status(500).send({ message: 'Error editing task.' });
     }
   });
+
+  // GET request to fetch and display tasks
+router.get("/tasks", async (req, res) => {
+  try {
+    const tasks = await Task.find(); 
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).send("Error fetching tasks");
+  }
+});
+
 export default router;
 
 /*
