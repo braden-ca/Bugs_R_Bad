@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 
 /** import connection file */
 import connectToDatabase from "./Database/conn.mjs";
-import routes from "./routes/taskRoutes.mjs";
+import routes from "./Routes/taskRoutes.mjs";
 
 // Middleware to parse JSON in request bodies
 app.use(express.json());
