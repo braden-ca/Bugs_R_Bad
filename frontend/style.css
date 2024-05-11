@@ -43,12 +43,43 @@ li {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
+
+  display: flex;
+    justify-content: space-between; /* Aligns items evenly */
+    align-items: center; /* Aligns items vertically */
 }
 
 .task-details {
   padding: 10px;
   border-left: 4px solid #3f72e9;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.task-info {
+  flex: 1; /* This will make the task-info take up all available space */
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.edit-btn, .delete-btn {
+  padding: 8px 12px;
+  border: none;
+  background-color: #3f72e9;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 5px; /* Add some space between buttons */
+}
+
 
 .task-details h3 {
   margin-top: 0;
