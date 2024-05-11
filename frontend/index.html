@@ -22,13 +22,13 @@
 
     <div class = "show-tasks">
       <h2>Tasks Due Today</h2>
-        <ul id="task-list"></ul>
-
+        <ul id="due-today"></ul>
       <h2 style="color: red;">Overdue Tasks</h2>
-      <button style="color: red;">Task C</button>
+        <ul id="over-due"></ul>
+      
       
       <h2>Upcoming Tasks</h2>
-      <button>Task D</button>
+      
       
     </div>
 
@@ -71,35 +71,43 @@
       })
 
       // get tasks from the backend
-      function renderTasks(tasks) { // function to render tasks in the frontend UI
-        const taskList = document.querySelector("#task-list");
+      function renderTasks(tasks) { // function to show tasks in the frontend UI
+        const taskList = document.querySelector("#due-today");  // referencing html classes
+        const overDue = document.querySelector("#over-due");
+
         taskList.innerHTML = "";  // clear existing tasks
+        overDue.innerHTML = "";
+
         tasks.forEach(task => { // iterates through each task
           const taskItem = document.createElement("li");  // creates a list item for each task 
           const taskDetails = document.createElement("div");  // create a container for task details
+          
           taskDetails.classList.add("task-details"); // add class so i can style css
+
+          // Check if the task is overdue
+          const currentDate = new Date(); // get current date
+          const dueDate = new Date(task.date);  // turn task date to date object
+          if (dueDate < currentDate) {  // check if task date is overdue
+              taskItem.classList.add("over-due"); // add over due class if it is
+              overDue.appendChild(taskItem); // add to overdue list (ul element w overdue id)
+          }
+          else {
+            taskList.appendChild(taskItem); // add to regular list
+          }
+
           // populate task details
           taskDetails.innerHTML = `
-            <u><h3><strong>${task.name}</strong></h3></u>
+            <h3><strong>${task.name}</strong></h3>
             <p> Description: ${task.description}</p>
             <p>Due Date: ${task.date}</p>
             <p>Priority: ${task.priority}</p>
             `;
           taskItem.appendChild(taskDetails);  // add details to each task name
-          taskList.appendChild(taskItem); // adds li item to ul list
         });
       }
 
-      
-      
-      
 
-
-
-
-
-
-      function fetchTasks() {
+      function fetchTasks() { // get tasks from backend
         fetch("http://localhost:3000/tasks")
           .then(response => {
             if (!response.ok) {

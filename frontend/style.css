@@ -1,8 +1,17 @@
 body {
   text-align: center;
-  background-color: rgb(222, 217, 238);
-  /* color: hsl(229, 70%, 27%); */
-  color: rgb(41, 86, 191);
+  /* background-color: rgb(222, 217, 238); */
+  background-color: rgb(236, 245, 255);
+  /* color: rgb(41, 86, 191); */
+  color: black;
+}
+
+h1 {
+  color: #000;
+}
+
+label h3 {
+  color: rgb(15, 113, 229);
 }
 
 div {
@@ -27,17 +36,6 @@ button {
   cursor: pointer;
 }
 
-/* li {
-  color: rgb(63, 114, 233);
-}
-.task-details h3 {
-  color: rgb(73, 121, 234);
-}
-
-.task-details p {
-  color: rgb(0, 0, 0);
-} */
-
 li {
   margin-bottom: 20px;
   padding: 10px;
@@ -53,7 +51,10 @@ li {
 
 .task-details h3 {
   margin-top: 0;
-  color: #3f72e9;
+}
+
+.task-details h3 strong {
+  color: #3f72e9
 }
 
 .task-details p {
