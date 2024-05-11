@@ -1,13 +1,9 @@
 body {
   text-align: center;
-  background-color: rgb(245, 221, 247);
-  color: hsl(229, 70%, 27%);
+  background-color: rgb(222, 217, 238);
+  /* color: hsl(229, 70%, 27%); */
+  color: rgb(41, 86, 191);
 }
-
-/* h2 {
-  text-align: center; 
-  margin-top: 0;
-} */
 
 div {
   width: auto;
@@ -31,12 +27,40 @@ button {
   cursor: pointer;
 }
 
-#task-list li {
-  cursor: pointer;
-  color: blue; /* Set color to blue to resemble links */
-  text-decoration: underline; /* Underline text to resemble links */
+/* li {
+  color: rgb(63, 114, 233);
+}
+.task-details h3 {
+  color: rgb(73, 121, 234);
 }
 
-#task-list li:hover {
-  text-decoration: none; /* Remove underline when hovered */
+.task-details p {
+  color: rgb(0, 0, 0);
+} */
+
+li {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.task-details {
+  padding: 10px;
+  border-left: 4px solid #3f72e9;
+}
+
+.task-details h3 {
+  margin-top: 0;
+  color: #3f72e9;
+}
+
+.task-details p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.task-details strong {
+  color: #000;
 }

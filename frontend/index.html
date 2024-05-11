@@ -76,14 +76,25 @@
         taskList.innerHTML = "";  // clear existing tasks
         tasks.forEach(task => { // iterates through each task
           const taskItem = document.createElement("li");  // creates a list item for each task 
-          taskItem.textContent = task.name;  // sets the list item to task name 
-          taskItem.addEventListener("click", () => {  // adds on click event listener
-            // handleTaskClick(task.id); // function to handle when task is clicked
-            window.location.href = `task-details.html?id=${task.id}`;
-          })
+          const taskDetails = document.createElement("div");  // create a container for task details
+          taskDetails.classList.add("task-details"); // add class so i can style css
+          // populate task details
+          taskDetails.innerHTML = `
+            <u><h3><strong>${task.name}</strong></h3></u>
+            <p> Description: ${task.description}</p>
+            <p>Due Date: ${task.date}</p>
+            <p>Priority: ${task.priority}</p>
+            `;
+          taskItem.appendChild(taskDetails);  // add details to each task name
           taskList.appendChild(taskItem); // adds li item to ul list
         });
       }
+
+      
+      
+      
+
+
 
 
 
