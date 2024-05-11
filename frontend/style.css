@@ -4,6 +4,7 @@ body {
   background-color: rgb(236, 245, 255);
   /* color: rgb(41, 86, 191); */
   color: black;
+  /* color: white; */
 }
 
 h1 {
@@ -65,3 +66,4 @@ li {
 .task-details strong {
   color: #000;
 }
+

@@ -25,13 +25,9 @@
         <ul id="due-today"></ul>
       <h2 style="color: red;">Overdue Tasks</h2>
         <ul id="over-due"></ul>
-      
-      
       <h2>Upcoming Tasks</h2>
-      
-      
+        <ul id="due-later"></ul>
     </div>
-
 
     <script>
 
@@ -72,11 +68,13 @@
 
       // get tasks from the backend
       function renderTasks(tasks) { // function to show tasks in the frontend UI
-        const taskList = document.querySelector("#due-today");  // referencing html classes
+        const dueToday = document.querySelector("#due-today");  // referencing html classes
         const overDue = document.querySelector("#over-due");
+        const dueLater = document.querySelector("#due-later");
 
-        taskList.innerHTML = "";  // clear existing tasks
+        dueToday.innerHTML = "";  // clear existing tasks
         overDue.innerHTML = "";
+        dueLater.innerHTML = "";
 
         tasks.forEach(task => { // iterates through each task
           const taskItem = document.createElement("li");  // creates a list item for each task 
@@ -86,14 +84,25 @@
 
           // Check if the task is overdue
           const currentDate = new Date(); // get current date
+          currentDate.setHours(0, 0, 0, 0); // set the time to midnight so hours dont affect time comparison
           const dueDate = new Date(task.date);  // turn task date to date object
+
           if (dueDate < currentDate) {  // check if task date is overdue
-              taskItem.classList.add("over-due"); // add over due class if it is
-              overDue.appendChild(taskItem); // add to overdue list (ul element w overdue id)
+            taskItem.classList.add("over-due"); // add over due class if it is
+            overDue.appendChild(taskItem); // add to overdue list (ul element w overdue id)
+          }
+          else if (dueDate > currentDate) {
+            taskItem.classList.add("due-later");
+            dueLater.appendChild(taskItem);
           }
           else {
-            taskList.appendChild(taskItem); // add to regular list
+            taskItem.classList.add("due-today");
+            dueToday.appendChild(taskItem); // add to regular list
           }
+
+          // // Log the dates for debugging
+          // console.log("Current Date:", currentDate);
+          // console.log("Due Date:", dueDate);
 
           // populate task details
           taskDetails.innerHTML = `
@@ -102,10 +111,10 @@
             <p>Due Date: ${task.date}</p>
             <p>Priority: ${task.priority}</p>
             `;
+
           taskItem.appendChild(taskDetails);  // add details to each task name
         });
       }
-
 
       function fetchTasks() { // get tasks from backend
         fetch("http://localhost:3000/tasks")
