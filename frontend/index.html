@@ -76,6 +76,16 @@
         overDue.innerHTML = "";
         dueLater.innerHTML = "";
 
+        tasks.sort((a, b) => {  // sort by due date and priority
+          const dateA = new Date(a.date);
+          const dateB = new Date(b.date);
+
+          if (dateA < dateB) return -1;
+          if (dateA > dateB) return 1;
+
+          return a.priority - b.priority;
+        });
+
         tasks.forEach(task => { // iterates through each task
           const taskItem = document.createElement("li");  // creates a list item for each task 
           const taskDetails = document.createElement("div");  // create a container for task details
