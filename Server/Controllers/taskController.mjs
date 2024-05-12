@@ -63,7 +63,7 @@ const delTaskController = {
 export default taskController;
 /*
 const taskController = {
-export async function getTask(req, res){
+async getTask(req, res){
   try {
      const q = await Task.find()
      res.json(q)
@@ -73,7 +73,7 @@ export async function getTask(req, res){
 }
 
 
-export async function insertTask(req,res){
+async insertTask(req,res){
   try {
       console.log(req.body);
         Task.insertMany({task});
@@ -85,7 +85,7 @@ export async function insertTask(req,res){
 }
 
 
-export async function dropTask(req, res){
+async dropTask(req, res){
   try {
      await Task.deleteMany();
      res.json({ msg: "Task deleted successfully"});
