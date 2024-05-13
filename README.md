@@ -5,7 +5,7 @@ TaskMaster is a simple web application designed to help you keep track of all yo
 ## Getting Started
 
 Installation instructions: 
- 1. Clone the repository: git clone ....
+ 1. Clone the repository: git clone ...
  2. Downloaded any of the extensions you don't have already so the code will compile.
  3. To run it first with the backend open a terminal and run npm start and that will run the backend on the localhost:3000 server.
  4. To run the frontend open a seperate terminal cd to frontend and then run python3 -m htpps.server and that will run the frontend on the localhost:8000 server.
@@ -28,7 +28,7 @@ TaskMaster is also very simple and straight forward, so anyone can use it to the
 
 The contributers to this project are Ryan Reddemann, Braden Smelser, Hildur Jonasdottir and Jennifer Miranda.
 
-To contribute to our website...
+To contribute to our website go look at the Getting Started section.
 
 ## Support
 
