@@ -88,14 +88,30 @@ const router = Router();
 import * as controller from '../Controllers/taskController.mjs';
 
 router.route('/task')
+  // .get(async (req, res) => {
+  //   try {
+  //     await controller.fetchTasks(req, res);
+  //   } catch (error) {
+  //     console.error(error);
+  //     res.status(500).json({ message: 'Internal server error' });
+  //   }
+  // })
+
   .get(async (req, res) => {
-    try {
-      await controller.fetchTasks(req, res);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
-    }
+    const tasks = [
+      { name: "Task 1", description: "Description for Task 1", date: "05-09-2024", priority: 1 },
+      { name: "Task 2", description: "Description for Task 2", date: "05-13-2024", priority: 2 },
+      { name: "Task 3", description: "Description for Task 3", date: "05-12-2024", priority: 3 },
+      { name: "Task 4", description: "Description for Task 4", date: "06-01-2024", priority: 1 },
+      { name: "Task 5", description: "Description for Task 5", date: "05-20-2024", priority: 2 },
+      { name: "Task 6", description: "Description for Task 6", date: "05-25-2024", priority: 3 },
+      { name: "Task 7", description: "Description for Task 7", date: "05-18-2024", priority: 1 }
+    ]
+    res.status(200).json(tasks);
+  
   })
+
+
   .post(async (req, res) => {
     try {
       await controller.createTask(req, res);
