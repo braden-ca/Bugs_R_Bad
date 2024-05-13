@@ -29,7 +29,7 @@ button.addEventListener("click", ()=> { // when button is clicked
         priority: priority.value
       };
       // send data to backend (where to send data, data sent)
-      fetch("http://localhost:3000/tasks", {
+      fetch("http://localhost:3000/task", {
         method: "POST",
         headers: {
           "Content-type": "application/json"
@@ -113,7 +113,7 @@ function renderTasks(tasks) { // function to show tasks in the frontend UI
 }
 
 function fetchTasks() { // get tasks from backend
-  fetch("http://localhost:3000/tasks")
+  fetch("http://localhost:3000")
     .then(response => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -134,7 +134,7 @@ window.addEventListener("load", fetchTasks);
 
 // DELETE TASK
 function deleteTask(taskId) {
-  fetch(`http://localhost:3000/tasks/${taskId}`, {
+  fetch(`http://localhost:3000/task/${taskId}`, {
     method: "DELETE",
   })
     .then(response => {

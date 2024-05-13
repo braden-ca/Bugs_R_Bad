@@ -1,12 +1,13 @@
+/*
 import express from "express";
 import taskController from "../Controllers/taskController.mjs";
 import Task from '../Models/schema.mjs';
 
 const router = express.Router();
 
-router.post("/tasks", taskController.createTask);
+router.post("/tasks/insertTaskId", taskController.createTask);
 
-router.delete('/tasks/:taskId', async (req, res) => {
+router.delete('/tasks/:deleteTaskId', async (req, res) => {
     const { taskId } = req.params;
   
     try {
@@ -23,7 +24,7 @@ router.delete('/tasks/:taskId', async (req, res) => {
   });
   
   // PUT request to edit a task by ID
-  router.put('/tasks/:taskId', async (req, res) => {
+  router.put('/tasks/:editTaskId', async (req, res) => {
     const { taskId } = req.params;
     const { task, description, date, priority, status } = req.body;
   
@@ -41,6 +42,7 @@ router.delete('/tasks/:taskId', async (req, res) => {
   });
 
 //  GET request to fetch and display tasks
+<<<<<<< HEAD
 // router.get("/tasks", async (req, res) => {
 //   try {
 //     const tasks = await Task.find(); 
@@ -50,6 +52,17 @@ router.delete('/tasks/:taskId', async (req, res) => {
 //     res.status(500).send("Error fetching tasks");
 //   }
 // });
+=======
+router.get("/tasks/:taskId", async (req, res) => {
+  try {
+    const tasks = await Task.find(); 
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).send("Error fetching tasks");
+  }
+});
+>>>>>>> 9c790070d4f58b6e26a89c1db548fcf041a59a35
 
 //  USED FOR TESTING FRONTEND
 router.get("/tasks", async (req, res) => {
@@ -67,22 +80,45 @@ router.get("/tasks", async (req, res) => {
 });
 
 export default router;
+*/
 
-/*
 import { Router } from "express";
 const router = Router();
 
-import * as controller from '../controllers/controller.js';
+import * as controller from '../Controllers/taskController.mjs';
 
 router.route('/task')
-.get(controller.getTask) 
-.post(controller.insertTask) 
-.delete(controller.dropTask) 
-
-router.route('/result')
-    .get(controller.getTask)
-    .post(controller.storeTask)
-    .delete(controller.dropTask)
+  .get(async (req, res) => {
+    try {
+      await controller.getTaskId(req, res);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  })
+  .post(async (req, res) => {
+    try {
+      await controller.insertTaskId(req, res);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  })
+  .delete(async (req, res) => {
+    try {
+      await controller.deleteTaskId(req, res);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  })
+  .put(async (req, res) => {
+    try {
+      await controller.editTaskId(req, res);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
 
 export default router;
-*/
