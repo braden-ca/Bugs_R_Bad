@@ -136,7 +136,7 @@ export const createTask = async (req, res) => {
   }
 };
 
- export const insertTaskId = async (req, res) => {
+ /*export const insertTaskId = async (req, res) => {
   const newData = req.body; 
   try {
     const task = new Task(newData);
@@ -146,7 +146,7 @@ export const createTask = async (req, res) => {
     console.error(error);
     res.status(400).json({ "error": "Invalid body" });
   }
-};
+};*/
 
 
 export const deleteTaskId = async (req, res) => {
@@ -182,9 +182,20 @@ export const editTaskId = async (req, res) => {
   }
 };
 
+export const fetchTasks = async (req, res) => {
+  try {
+    const tasks = await Task.find(); 
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).send("Error fetching tasks");
+  }
+};
+
 const taskController = {
   createTask,
-  insertTaskId,
+  fetchTasks,
+  //insertTaskId,
   deleteTaskId,
   editTaskId
 };
