@@ -41,26 +41,30 @@ router.delete('/tasks/:taskId', async (req, res) => {
   });
 
 //  GET request to fetch and display tasks
-router.get("/tasks", async (req, res) => {
-  try {
-    const tasks = await Task.find(); 
-    res.status(200).json(tasks);
-  } catch (error) {
-    console.error("Error fetching tasks:", error);
-    res.status(500).send("Error fetching tasks");
-  }
-});
+// router.get("/tasks", async (req, res) => {
+//   try {
+//     const tasks = await Task.find(); 
+//     res.status(200).json(tasks);
+//   } catch (error) {
+//     console.error("Error fetching tasks:", error);
+//     res.status(500).send("Error fetching tasks");
+//   }
+// });
 
 //  USED FOR TESTING FRONTEND
-// router.get("/tasks", async (req, res) => {
-//   const tasks = [{
-//     name: "Task 1", description: "Description for Task 1", date: "2024-05-09", priority: 1
-//   }]
-//   res.status(200).json(tasks);
-//     // { name: "Task 2", description: "Description for Task 2", date: "2024-05-10", priority: 2 },
-//     // { name: "Task 3", description: "Description for Task 3", date: "2024-05-11", priority: 3 }
+router.get("/tasks", async (req, res) => {
+  const tasks = [
+    { name: "Task 1", description: "Description for Task 1", date: "05-09-2024", priority: 1 },
+    { name: "Task 2", description: "Description for Task 2", date: "05-10-2024", priority: 2 },
+    { name: "Task 3", description: "Description for Task 3", date: "05-12-2024", priority: 3 },
+    { name: "Task 4", description: "Description for Task 4", date: "06-01-2024", priority: 1 },
+    { name: "Task 5", description: "Description for Task 5", date: "05-20-2024", priority: 2 },
+    { name: "Task 6", description: "Description for Task 6", date: "05-25-2024", priority: 3 },
+    { name: "Task 7", description: "Description for Task 7", date: "05-18-2024", priority: 1 }
+  ]
+  res.status(200).json(tasks);
 
-// });
+});
 
 export default router;
 

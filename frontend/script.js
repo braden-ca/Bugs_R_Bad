@@ -5,6 +5,19 @@ var dueDate = document.querySelector(".dueDate");
 var priority = document.querySelector(".priority");
 var button = document.querySelector(".submit-task");
 
+async function fetchTaskById(taskId) {
+  try {
+    const response = await fetch('http://localhost:300/tasks/${taskId}');
+    if (!response.ok) {
+      throw new Error("Failed to fetch task");
+    }
+    const task = await response.json();
+    return task;
+  } catch (error) {
+    throw new Error("Error fetching task: " + error.message);
+  }
+}
+
 button.addEventListener("click", ()=> { // when button is clicked
   if (taskName.value && dueDate.value && priority.value) { // check values are enteres
     if (priority.value >= 1 && priority.value <= 3) { // check priority is in bounds
@@ -138,15 +151,40 @@ function deleteTask(taskId) {
 
 // EDIT TASK 
 function openEditForm(taskId) {
+  
   // Show the edit task modal
   document.getElementById("editTaskModal").style.display = "block";
 
+  fetchTaskById(taskId)
+  .then(task => {
   // Prefill form fields with task information
   document.getElementById("editTaskName").value = task.name;
   document.getElementById("editDescription").value = task.description;
   document.getElementById("editDueDate").value = task.date;
   document.getElementById("editPriority").value = task.priority;
+  })
+  .catch(error => {
+    console.error("Error editing task:", error);
+  })
 }
+
+ /* fetch('http://localhost:3000/tasks/${taskId}' , {
+    method: "EDIT",
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Failed to edit task");
+    }
+  // Reload the tasks after editing is finished
+  fetchTasks();
+
+  // Hide the edit task modal
+  document.getElementById("editTaskModal").style.display = "none";
+  })
+  .catch(error => {
+    console.error("Error editing task:", error);
+  })
+} */
 
 // Get the close button element
 var closeButton = document.querySelector(".close");
