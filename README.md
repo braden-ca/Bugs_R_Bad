@@ -8,8 +8,8 @@ Installation instructions:
  1. Clone the repository: git clone ....
  2. Downloaded any of the extensions you don't have already so the code will compile.
  3. To run it first with the backend open a terminal and run npm start and that will run the backend on the localhost:3000 server.
- 4. To run the frontend open a seperate terminal and run python3 -m htpps.server and that will run the frontend on localhost:8000.
- 5. Now you will have bot hservers up and running and you will need to type in localhost:8000 into a web browser to pull it up and from there you are all set up and ready to use TaskMaster.  
+ 4. To run the frontend open a seperate terminal cd to frontend and then run python3 -m htpps.server and that will run the frontend on the localhost:8000 server.
+ 5. Now you will have both servers up and running and you will need to type in localhost:8000 into a web browser to pull it up and from there you are all set up and ready to use TaskMaster.  
 
 ## Features
 
