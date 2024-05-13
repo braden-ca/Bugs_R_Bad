@@ -113,7 +113,7 @@ function renderTasks(tasks) { // function to show tasks in the frontend UI
 }
 
 function fetchTasks() { // get tasks from backend
-  fetch("http://localhost:3000")
+  fetch("http://localhost:3000/task")
     .then(response => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -194,9 +194,4 @@ closeButton.addEventListener("click", function() {
   // Hide the edit task modal
   document.getElementById("editTaskModal").style.display = "none";
 });
-
-  
-
-
-
   
