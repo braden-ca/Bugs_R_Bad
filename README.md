@@ -23,6 +23,18 @@ TaskMaster is also very simple and straight forward, so anyone can use it to the
 
 ## Contributing
 
+The contributers to this project are Ryan Reddemann, Braden Smelser, Hildur Jonasdottir and Jennifer Miranda.
+
+To contribute to our website...
+
+## Support
+
+For users to get help with this project they can email any of us with questions since we did not have time to add an instructional page, how-to page or Q&A page. Our emails are as follows:
+- hjonasdottir@csub.edu
+- bsmelser@csub.edu
+- rreddemann@csub.edu
+- jmiranda27@csub.edu
+
 ## Acknowledgements
 
 Special thanks to Professor Nick Toothman for helping with code when facing errors or problems.
