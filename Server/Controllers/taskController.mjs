@@ -128,7 +128,8 @@ export const createTask = async (req, res) => {
 
     await newTask.save();
 
-    res.status(201).send(newTask); 
+    //res.status(201).send(newTask); 
+    res.status(201).send({ TaskId: newTask._id, ...newTask.toJSON() });
   } catch (error) {
     console.error("Error creating task:", error);
     res.status(500).send("Error creating task");

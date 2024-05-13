@@ -90,7 +90,7 @@ import * as controller from '../Controllers/taskController.mjs';
 router.route('/task')
   .get(async (req, res) => {
     try {
-      await controller.getTaskId(req, res);
+      await controller.createTask(req, res);
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: 'Internal server error' });
