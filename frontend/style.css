@@ -12,10 +12,15 @@ h1 {
 }
 
 img {
-  width: 50px;
-  border-radius: 5px;
-  float: right;
-  margin-left: 10px;
+  width: 35px;
+  border-radius: 10px; 
+  margin-left: 10px; 
+}
+
+.header {
+  /* display: inline-block; */
+  /* text-align: center; */
+  /* margin */
 }
 
 label h3 {
