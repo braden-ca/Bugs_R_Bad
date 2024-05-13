@@ -3,13 +3,13 @@ const { Schema } = mongoose;
 
 
 const taskModel = new Schema({
-    task : { type: String, default: ''},
+    taskName : { type: String, default: ''},
     description : {type: String, default: ''},
     date : { type : Date, default: Date.now},
     priority : { type: Number, default: 1, min: 1, max: 3},
     status : {type: Boolean, default: false}
 });
-
+/*
 taskModel.statics.deleteTaskId = async function (taskId) {
     try {
       const result = await this.deleteOne({ _id: taskId });
@@ -29,6 +29,6 @@ taskModel.statics.deleteTaskId = async function (taskId) {
       throw error;
     }
   };
-  
+  */
 
 export default mongoose.model('Task', taskModel);

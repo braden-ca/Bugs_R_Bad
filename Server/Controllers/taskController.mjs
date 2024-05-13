@@ -114,12 +114,12 @@ export default taskController;
 import Task from "../Models/schema.mjs";
 import task from '../database/data.mjs';
 
-const createTask = async (req, res) => {
+export const createTask = async (req, res) => {
   try {
-    const { task, description, date, priority, status } = req.body;
+    const { taskName, description, date, priority, status } = req.body;
 
     const newTask = new Task({
-      task,
+      task: taskName,
       description,
       date: date || Date.now(),
       priority: priority || 1,
@@ -135,7 +135,7 @@ const createTask = async (req, res) => {
   }
 };
 
-const insertTaskId = async (req, res) => {
+ export const insertTaskId = async (req, res) => {
   const newData = req.body; 
   try {
     const task = new Task(newData);
@@ -148,7 +148,7 @@ const insertTaskId = async (req, res) => {
 };
 
 
-const deleteTaskId = async (req, res) => {
+export const deleteTaskId = async (req, res) => {
   const { taskId } = req.params;
 
   try {
@@ -164,7 +164,7 @@ const deleteTaskId = async (req, res) => {
   }
 };
 
-const editTaskId = async (req, res) => {
+export const editTaskId = async (req, res) => {
   const { taskId } = req.params;
   const newData = req.body; 
 
